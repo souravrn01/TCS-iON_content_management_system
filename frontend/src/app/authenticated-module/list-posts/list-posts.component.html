@@ -1,0 +1,12 @@
+<h2 class="ml-3 mb-4">All posts under category: <span id="name">{{category.category}}</span></h2>
+<div class="container back">
+    <div class="in">
+        <div id="post" *ngFor="let post of headlineArr">
+            <div id="heading">
+                <h3>{{post.headline}}</h3>
+            </div>
+            <div id="over" (click)="view(post._id)"><p>View Post</p></div>
+        </div> 
+    </div>
+    
+</div>

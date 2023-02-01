@@ -1,0 +1,65 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light mx-auto">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item mr-3">
+          <a class="nav-link" routerLink="/manage" *ngIf="user === 'Root User'">Admin management</a>
+        </li>
+        <li class="nav-item mr-3">
+          <a class="nav-link" (click)="getCat()">New post</a>
+        </li>
+        <li class="nav-item mr-3">
+          <a class="nav-link" routerLink="/managePosts">Manage posts</a>
+        </li>
+        <li class="nav-item mr-3">
+            <a class="nav-link" routerLink="/" (click)="out()">Logout</a>
+          </li>
+      </ul>
+    </div> 
+  </nav>
+<hr>
+  
+<div id="create">
+    <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" [(ngModel)]="category" name="category" placeholder="Create new category" aria-label="Search" required>
+        <button (click)="createCategory()" class="btn btn-outline-success my-2 my-sm-0" type="submit" [disabled]="category === ''">Create</button>
+      </form>
+</div>
+<hr>
+
+
+    <div class="catsection" >
+        <div class="cat-head">
+            <h2>Edit Category</h2>
+        </div>
+        <div class="hold">
+            <div *ngFor="let cat of store" class="cats">
+                <span class="mx-auto">{{cat.name}}</span>
+                <div class="options">
+                    <i class="ri-delete-bin-2-line del" (click)="del(cat._id)"></i><i class="ri-edit-2-line edit" (click)="edit(cat._id)"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+<div class="back" *ngIf="categories.length > 0">
+    <div class="catWindow" >
+        <h4 class="text">Choose category: </h4>
+        <i class="ri-close-circle-fill" id="close-btn" (click)="close()"></i>
+        <div *ngFor="let cat of categories" class="cat-item" (click)="saveCat(cat)">
+            <span>{{cat}}</span>
+        </div>
+    </div>
+</div>
+
+<div class="newedit" *ngIf="update.id">
+    <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" [(ngModel)]="editCategory" name="editCategory" placeholder="New category name" aria-label="Search" required>
+        <button (click)="updateCat()" class="btn btn-outline-warning my-2 my-sm-0" type="submit" [disabled]="editCategory === ''">update</button>
+        <button (click)="closecat()" class="btn btn-outline-danger my-2 my-sm-0 ml-3" >close</button>
+      </form>
+</div>
+

@@ -1,0 +1,30 @@
+<div class="container" id="head">
+  <h1>Registration for Authenticated User</h1>
+  <button class="btn btn-outline-dark" routerLink="/authUser">Back</button>
+</div>
+
+<div id="form" class="container">
+  <form [formGroup]="userSignup" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <label for="name">User name</label>
+        <input type="text" class="form-control" id="name"  formControlName="name">
+      </div>
+      <div class="form-group">
+        <label for="phone">Contact number</label>
+        <input type="text" class="form-control" id="phone"  formControlName="phone">
+      </div>
+    <div class="form-group">
+      <label for="email">Email address</label>
+      <input type="email" class="form-control" id="email" aria-describedby="emailHelp" formControlName="email">
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" class="form-control" id="password" formControlName="password">
+    </div>
+    <button type="submit" class="btn btn-outline-success">Sign up</button>
+  </form>
+  <small id="fb" *ngIf="!status">*Fields should be filled and valid</small>
+
+</div>
+
+ 

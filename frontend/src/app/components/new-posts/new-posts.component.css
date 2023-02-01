@@ -1,0 +1,54 @@
+*{
+    box-sizing: border-box;
+}
+
+.home{
+    font-size: 2.5rem;
+    cursor: pointer;
+    color: rgb(58, 30, 84);
+    position: relative;
+    left: 2.5rem;
+    border-radius: 10px;
+    display:block;
+}
+
+.home:hover{ 
+    color: rgb(169, 94, 239);
+    transform: scale(1.1);
+}
+
+.nav>h2{
+    margin: auto auto ;
+    letter-spacing: 2px;
+}
+
+.nav{
+    background-color: rgb(249, 224, 190);
+}
+
+a{
+    text-decoration: none;
+}
+
+#form{
+
+    min-width: 20.2rem; 
+    margin-bottom: 10px;
+
+}
+.editor{
+    margin-top: 1rem;
+}
+
+label{
+    font-family:'Arial', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', sans-serif;
+    font-size: 25px;
+}
+
+small{
+    font-size: larger;
+    /* background-color: rgb(71, 50, 23) */
+    
+    color: orangered;
+    border-bottom: 2px solid red;
+}

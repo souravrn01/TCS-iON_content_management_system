@@ -1,0 +1,59 @@
+*{
+    box-sizing: border-box;
+}
+#post{
+    display: inline-block;
+    min-width: 30rem;
+    min-height: 60px;
+    max-width: 500px;
+    position: relative;
+    border-radius: 5px;
+    margin-left: 10px;
+    margin-bottom: 15px;
+   border: 2px solid rgb(220, 204, 176);
+   box-shadow: 1px 1px 2px 2px rgb(116, 104, 96);
+}
+  
+.options{ 
+position: absolute;
+bottom: 2px;
+right: 5px;
+display: flex;
+justify-content: space-between;
+}
+
+#name{
+    background-color:rgb(251, 206, 190);
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.edit , .del {
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.edit:hover{
+    color: blue;
+    transform: scale(1.2);
+
+}
+
+.del:hover{
+    color: rgb(235, 27, 27);
+    transform: scale(1.2);
+
+}
+
+#heading{
+    display: block;
+    margin: 2px 4px;
+    text-align: center;
+ 
+}
+
+.back{
+    text-align: center;
+}
+

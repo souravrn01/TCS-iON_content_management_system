@@ -1,0 +1,22 @@
+<table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th class="back" routerLink="/roothome"><i class="ri-arrow-left-line home"></i></th>
+        <th scope="col" class="sl">#</th>
+        <th scope="col" class="name">Name</th>
+        <th scope="col" class="name">Email</th>
+        <th scope="col" class="name">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of AuthUserDatas; let indexOfelement = index">
+        <th scope="row" class="sl"></th>
+        <td class="sl">{{indexOfelement + 1}}</td>
+        <td class="name">{{user.name}}</td>
+        <td class="email">{{user.email}}</td>
+        <td *ngIf="!user.isAdmin" class="action"><button [ngClass]="{'false': !user.isAdmin}" class="actionbtn" (click)="changeAdmin(user._id)">Make Admin</button><br></td>
+        <td *ngIf="user.isAdmin" class="action"><button [ngClass]="{'true': user.isAdmin}" class="actionbtn" (click)="changeAdmin(user._id)">Remove Admin</button><br></td>
+      </tr>
+    </tbody>
+  </table>
+  

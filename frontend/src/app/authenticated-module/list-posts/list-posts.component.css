@@ -1,0 +1,58 @@
+*{
+    box-sizing: border-box;
+}
+#post{
+    display: inline-block;
+    min-width: 30rem;
+    min-height: 60px;
+    max-width: 500px;
+    position: relative;
+    border-radius: 5px;
+    margin-left: 10px;
+    margin-bottom: 15px;
+   border: 2px solid rgb(220, 204, 176);
+   box-shadow: 1px 1px 2px 2px rgb(116, 104, 96);
+   cursor: pointer;
+
+}
+
+#heading{
+    display: block;
+    margin: 2px 4px;
+    text-align: center;
+}
+
+
+.back{
+    text-align: center;
+}
+
+#name{
+    font-size: larger;
+    color: orangered;
+    border-bottom: 2px solid red;
+    font-weight: 400;
+}
+
+#over{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width:100%;
+    height: 100%;
+    border-radius: 5px;
+    background-color:rgb(44, 30, 30);
+    color:rgb(175, 248, 248);
+    opacity: 0;
+    transition: all 0.2s ease-in 0.3s, all 0.3s ease-out;
+}
+
+#over p{
+    margin-top: 12px;
+    font-size: 1.3em;
+}
+
+#over:hover{
+    opacity: 1;
+}

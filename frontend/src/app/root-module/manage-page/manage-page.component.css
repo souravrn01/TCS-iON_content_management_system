@@ -1,0 +1,45 @@
+.actionbtn.true{
+    background-color: rgb(193, 15, 15);
+}
+
+.actionbtn.false{
+    background-color: rgb(56, 111, 56);
+}
+
+.actionbtn{
+    border-radius: 5px;
+    border: none;
+    color: rgb(251, 251, 236);
+}
+
+.actionbtn:hover{
+    box-shadow: 0px 0px 5px 1px rgb(166, 166, 245) ;
+    color: rgb(217, 217, 228)
+} 
+
+*{
+    box-sizing: border-box; 
+    transition: all .1s ease-in-out;
+}
+
+.action, .name, .email{
+   width: 10rem;   
+   text-align: center;
+}
+
+.home{
+    color: rgb(19, 156, 111);
+    font-size: 20px;
+    cursor: pointer;
+    display: inline-block;
+    transform: scale(1.2);
+}
+
+.home:hover{
+    color: aquamarine;
+    transform: scale(1.4);
+}
+
+.back, .sl{
+    width:1rem;
+}

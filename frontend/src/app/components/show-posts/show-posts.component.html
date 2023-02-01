@@ -1,0 +1,9 @@
+<div class="nav">
+    <a (click)="function()"><i class="ri-arrow-left-circle-fill home"></i></a>
+    <h2>Post View Page</h2>
+</div>
+<div class = "container body">
+    <h1 class="heading">{{store.headline}}</h1>
+    <small class="name mr-4">published by: {{store.publishedby}}</small><small class="date">published at: {{store.date | date: 'medium'}}</small>
+    <p class="content" [innerHTML]="content"></p>
+</div>

@@ -1,0 +1,24 @@
+<div class="dropright mt-2">
+    <button class="user-btn" data-toggle="dropdown" aria-expanded="false"><i class="ri-user-3-fill user-icon"></i></button>
+<h5 class="mt-2 name">User</h5>
+<div class="dropdown-menu">
+    <a class="dropdown-item" routerLink="/authUser">Authenticated User</a>
+    <a class="dropdown-item" routerLink="/admin">Admin</a>
+    <a class="dropdown-item" routerLink="/root">Root User</a>
+  </div>
+</div>
+<h1 class="main container">WELCOME TO CMS APP</h1>
+
+
+<div class="catsection" >
+  <div class="cat-head">
+      <h2>Choose by Category</h2>
+  </div>
+  <div class="hold">
+      <div *ngFor="let cat of store" class="cats" (click)="getPosts(cat.name)">
+          <span class="mx-auto">{{cat.name}}</span>
+      </div>
+  </div>
+</div>
+<hr>
+<router-outlet></router-outlet> 

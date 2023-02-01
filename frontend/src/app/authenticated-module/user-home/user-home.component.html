@@ -1,0 +1,31 @@
+<div class="nav pt-2 pb-2">
+    <h2 class="txt">Manage your posts</h2>
+    <div class="item ml-auto">
+        <button type="button" class="btn btn-outline-success mr-3" (click)="getCat()">New Post</button>
+        <button type="button" class="btn btn-outline-danger mr-4" (click)="out()">Logout</button>
+    </div>
+</div>
+<hr>
+
+<div class="container last">
+    <div class="in">
+        <div id="post" *ngFor="let post of headlineArr">
+            <div id="heading">
+                <h3>{{post.headline}}</h3>
+            </div>
+            <div class="options">
+                <i class="ri-delete-bin-2-line del" (click)="delete(post._id, post.category)"></i><i class="ri-edit-2-line edit" (click)="edit(post._id, post.category)"></i>
+            </div>
+        </div> 
+    </div>
+</div>
+
+<div class="back" *ngIf="categories.length > 0">
+    <div class="catWindow" >
+        <h4 class="text">Choose category: </h4>
+        <i class="ri-close-circle-fill" id="close-btn" (click)="close()"></i>
+        <div *ngFor="let cat of categories" class="cat-item" (click)="saveCat(cat)">
+            <span>{{cat}}</span>
+        </div>
+    </div>
+</div>

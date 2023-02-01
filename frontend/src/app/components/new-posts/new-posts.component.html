@@ -1,0 +1,28 @@
+<div class="nav">
+    <a (click)="back()"><i class="ri-arrow-left-circle-fill home"></i></a>
+    <h2>Create New Posts</h2>
+</div>
+
+<h2 class="mb-3 ml-3 container mt-4">Category selected: <small>{{send.category}}</small></h2>
+
+<div class="container editor">
+    <div id="form">
+        <form class="form-inline my-2 my-lg-0">
+            <label class="mr-1">Heading:</label><input class="form-control mr-sm-2" type="search" [(ngModel)]="send.headline" name="headline" placeholder="Provide a headline" aria-label="Search" required>
+        </form>
+    </div>
+
+    <ckeditor [(ngModel)]="ckeditorContent" (change)="sanitize()"></ckeditor>
+</div>
+<div class="container mt-1">
+    <button (click)="upload()" class="btn btn-outline-success my-2 my-sm-0" type="submit" [hidden]="send.headline === '' || ckeditorContent === '' ">Publish</button>
+  </div>
+<hr>
+<div>
+    <h3 class="mb-3 ml-3 container">Preview:</h3> 
+    <p class="container" [innerHTML]="safeContent"></p>
+</div>
+
+
+
+ 

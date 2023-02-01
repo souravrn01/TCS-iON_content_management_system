@@ -1,0 +1,21 @@
+ 
+<div class="nav">
+  <a (click)="function()"><i class="ri-arrow-left-circle-fill home"></i></a><a *ngIf="home" routerLink="/roothome"><i class="ri-home-2-fill home ml-3" ></i></a>
+  <h2>Edit Posts</h2>
+</div>
+
+  <div id="form">
+    <label>Heading:</label>
+    <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" [(ngModel)]="heading" name="heading" placeholder="Update heading" aria-label="Search" required>
+        <button (click)="updateHeading()" class="btn btn-outline-primary my-2 my-sm-0" type="submit" [disabled]="heading === ''">Update</button>
+      </form>
+</div>
+
+<div class='container editor'>
+  <ckeditor [(ngModel)]="update.ckeditorContent" (change)="sanitize()"></ckeditor>
+</div>
+<div class="container mt-1">
+  <button (click)="newContent()" class="btn btn-outline-primary my-2 my-sm-0" type="submit">Update</button>
+</div>
+

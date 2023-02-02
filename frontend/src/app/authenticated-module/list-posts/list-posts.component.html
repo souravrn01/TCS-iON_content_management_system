@@ -8,5 +8,5 @@
             <div id="over" (click)="view(post._id)"><p>View Post</p></div>
         </div> 
     </div>
-    
+    <h2 *ngIf="headlineArr.length === 0">No posts Available</h2>
 </div>

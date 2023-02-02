@@ -64,6 +64,7 @@ editCategory:String =''
 
   out(){
     sessionStorage.clear()
+    localStorage.removeItem('token')
   }
   
   saveCat(cat:any){

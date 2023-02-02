@@ -24,11 +24,11 @@ export class ListPostsComponent implements OnInit {
     this.api.getPostsUndercategory(cat).subscribe(res=>{
      this.postDatas = res
      this.headlineArr = this.postDatas.posts
-    })
+     
+    }) 
   }
  
   view(id:any){
-    console.log(id);
     this.route.navigateByUrl(`/show/${id}/${this.category.category}`)
 }
 }

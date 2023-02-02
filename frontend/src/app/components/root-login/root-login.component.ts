@@ -24,12 +24,14 @@ export class RootLoginComponent implements OnInit {
   onSubmit(){
     if(this.loginForm.status != "INVALID"){
       this.status = true
-      this.api.rootlogin(this.loginForm.value).subscribe(res=>{
+      this.api.rootlogin(this.loginForm.value).subscribe(res=>{ 
+            
         if(Object.values(res)[0] === "matching"){
-        sessionStorage.removeItem('user')
+          let token =  Object.values(res)[1]
+          localStorage.setItem('token',token)
+          sessionStorage.clear()
           sessionStorage.setItem('user',JSON.stringify("Root User"))
           this.router.navigateByUrl('/roothome')
-          
         }else{
           //! show error
           alert("YOU ARE NOT AUTHORIZED TO LOGIN")

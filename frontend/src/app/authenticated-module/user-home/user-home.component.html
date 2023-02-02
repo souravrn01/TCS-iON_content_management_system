@@ -17,6 +17,7 @@
                 <i class="ri-delete-bin-2-line del" (click)="delete(post._id, post.category)"></i><i class="ri-edit-2-line edit" (click)="edit(post._id, post.category)"></i>
             </div>
         </div> 
+        <h1 *ngIf="headlineArr.length ==0">No posts yet!!</h1>
     </div>
 </div>
 

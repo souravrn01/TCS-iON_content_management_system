@@ -20,10 +20,6 @@ const PostSchema = new schema({
                   type: String,
                   default: "sample"
               },
-                image: {
-                  type: String,
-                  default: "sample"
-              },  
                     headline: {
                     type: String,
                     default: "heading"

@@ -27,9 +27,9 @@ onSubmit(){
     this.api.AdminLogin(this.AdminForm.value).subscribe(res=>{
       if(res !== null){
         this.data = res
-        console.log(this.data);
-        sessionStorage.removeItem('user')
-        sessionStorage.setItem('user',JSON.stringify(this.data.name))
+        localStorage.setItem('token',this.data.token)
+        sessionStorage.clear()
+        sessionStorage.setItem('user',JSON.stringify(this.data.data.name))
         sessionStorage.setItem('admin',JSON.stringify("true"))
         this.router.navigateByUrl('/roothome')
       }else{

@@ -10,5 +10,6 @@
                 <i class="ri-delete-bin-2-line del" (click)="delete(post._id)"></i><i class="ri-edit-2-line edit" (click)="edit(post._id)"></i>
             </div>
         </div> 
+        <h2 *ngIf="headlineArr.length === 0">No posts Available</h2>
     </div>
 </div>

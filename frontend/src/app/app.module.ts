@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -23,6 +22,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UserHomeComponent } from './authenticated-module/user-home/user-home.component';
 import { ListPostsComponent } from './authenticated-module/list-posts/list-posts.component';
 import { ShowPostsComponent } from './components/show-posts/show-posts.component';
+import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
+import { ForbiddenComponent } from './components/forbidden/forbidden.component';
+import { TokenInterceptorService } from './token-interceptor.service';
 
 
 
@@ -47,6 +49,7 @@ import { ShowPostsComponent } from './components/show-posts/show-posts.component
     UserHomeComponent,
     ListPostsComponent,
     ShowPostsComponent,
+    ForbiddenComponent,
     
   ],
   imports: [
@@ -57,9 +60,14 @@ import { ShowPostsComponent } from './components/show-posts/show-posts.component
     FormsModule,
     CKEditorModule,
     MatMenuModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    RxReactiveFormsModule,
   ],
-  providers: [HeroService],
+  providers: [HeroService,{
+    provide: HTTP_INTERCEPTORS,
+    useClass:TokenInterceptorService,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

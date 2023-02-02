@@ -11,12 +11,19 @@ router.post('/login', async (req, res)=>{
             password: req.body.password,
             isAdmin: true                            
         })
-        res.send(data)
+        if(data !== null){
+            let payload = {subject: req.body.email + req.body.password}
+            let token = jwt.sign(payload,'secretKey')
+            res.send({data,token})
+        }else{
+            res.send(null)
+        }
+        
     } catch (error) {
         console.log('admin login error', error);
     }
 })
 
 
-
+ 
 module.exports = router

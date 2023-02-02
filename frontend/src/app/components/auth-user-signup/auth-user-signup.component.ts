@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import{RxwebValidators} from '@rxweb/reactive-form-validators';
 import { HeroService } from 'src/app/hero.service';
 
 @Component({
@@ -11,21 +12,22 @@ import { HeroService } from 'src/app/hero.service';
 export class AuthUserSignupComponent implements OnInit {
 
   constructor(private api: HeroService, private route: Router) { }
- status:any
+ show:any
 
   userSignup: any = new FormGroup({
-    'name': new FormControl('',[Validators.required]),
-    'phone': new FormControl('',[Validators.required]),
+    'name': new FormControl('',[Validators.required, RxwebValidators.minLength({value:5 })]),
+    'phone': new FormControl('',[Validators.required,RxwebValidators.digit(),RxwebValidators.minLength({value:9})]),
     'email': new FormControl('',[Validators.required,Validators.email]),
-    'password': new FormControl('',[Validators.required])
+    'password': new FormControl('',[Validators.required,RxwebValidators.password({validation:{maxLength: 20,minLength: 5,digit: true,specialCharacter: true} })])
   })
   ngOnInit(): void {
-    this.status = true
-  }
+    this.show = false
+  } 
 
   onSubmit(){
-    if(this.userSignup.status != "INVALID"){
-      this.status = true
+    console.log(this.userSignup.controls.name.valid)
+    if(this.userSignup.valid){
+      this.show = false
       console.log(this.userSignup);
       this.api.register(this.userSignup.value).subscribe(res=>{
         console.log(res, 'from database');
@@ -33,7 +35,7 @@ export class AuthUserSignupComponent implements OnInit {
         this.route.navigateByUrl('/authUser')
       })
     }else{
-      this.status = false
+      this.show = true
     }
     
   }

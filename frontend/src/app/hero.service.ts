@@ -92,6 +92,14 @@ getUserPosts(name:any){
 allPosts(){
   return this.http.get('http://localhost:4500/api/rootUser/allPosts')
 }
+
+loggedIn(){
+  return !!localStorage.getItem('token');
+ }
+
+ getToken(){
+  return localStorage.getItem('token')
+ }
 }
 
 

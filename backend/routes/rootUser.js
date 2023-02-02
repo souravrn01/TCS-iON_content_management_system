@@ -1,17 +1,20 @@
-const express = require("express");
-const { find } = require("../models/authenticatedUser");
+const express = require("express"); 
 const router = express.Router();
 const userData = require("../models/authenticatedUser");
 const rootPosts = require("../models/postsByRoot");
+const jwt = require('jsonwebtoken')
+const verifyToken = require('../middlewares/verifyToken')
+
 
 let email = "root@email.com";
 let password = "rootpass@321";
-let m = "matched";
-let u = "unmatched";
+
 router.post("/login", async (req, res) => {
   try {
     if (req.body.email === email && req.body.password === password) {
-      res.json({ message: "matching" });
+      let payload = {subject: email+password}
+      let token = jwt.sign(payload,'secretKey')
+       res.json({ message: "matching" , token});
     } else {
       res.json({ message: "unmatching" });
     }
@@ -42,7 +45,7 @@ router.get("/toggleAdmin/:id", async (req, res) => {
   }
 });
 
-router.put("/publish", async (req, res) => {
+router.put("/publish",  async (req, res) => {
   try {
     let content = req.body.content.changingThisBreaksApplicationSecurity
     let category = req.body.category
@@ -63,7 +66,7 @@ router.put("/publish", async (req, res) => {
   }
 });
 
-router.post("/createCategory", async (req, res) => {
+router.post("/createCategory",  async (req, res) => {
   try {
     const newCat = new rootPosts( { name: req.body.data });
     const savedCat = await newCat.save();
@@ -93,7 +96,7 @@ router.post('/getCatPosts', async(req, res)=>{
   }
 })
 
-router.post('/deletePost', async(req, res)=>{
+router.post('/deletePost',  async(req, res)=>{
   try {
     console.log(req.body)
       let name = req.body.category
@@ -106,7 +109,7 @@ router.post('/deletePost', async(req, res)=>{
   }
 })
 
-router.put('/newContent', async(req, res)=>{
+router.put('/newContent',  async(req, res)=>{
   try {
     let name = req.body.category
     let id = req.body.id
@@ -119,7 +122,7 @@ router.put('/newContent', async(req, res)=>{
   }
 })
 
-router.put('/newHeadline', async(req, res)=>{
+router.put('/newHeadline',   async(req, res)=>{
   try {
     let name = req.body.category
     let id = req.body.id
@@ -144,7 +147,7 @@ router.post('/getContent', async(req, res)=>{
   }
 })
 
-router.put('/editCat',async(req, res)=>{
+router.put('/editCat',  async(req, res)=>{
   try {
      let id = req.body.id
     let name = req.body.name

@@ -16,7 +16,7 @@ data:any
 LoginForm:any = new FormGroup({
   'email': new FormControl('',[Validators.required,Validators.email]),
   'password': new FormControl('',[Validators.required])
-})
+}) 
 
   ngOnInit(): void {
     this.status = true
@@ -28,8 +28,9 @@ LoginForm:any = new FormGroup({
       this.api.login(this.LoginForm.value).subscribe(res=>{
         if(res !== null){
           this.data = res
-          sessionStorage.removeItem('user')
-          sessionStorage.setItem('user',JSON.stringify(this.data.name))
+        localStorage.setItem('token',this.data.token)
+          sessionStorage.clear()
+          sessionStorage.setItem('user',JSON.stringify(this.data.data.name))
           this.route.navigateByUrl('/userhome')
         }else{
           alert("Not an authenticated user")

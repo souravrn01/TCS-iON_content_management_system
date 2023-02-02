@@ -78,7 +78,7 @@
 }
 
 .cats:hover{
-   transform: scale(1.2);
+   transform: scale(1.1);
    background:none;
    color: rgb(246, 77, 15);
 }

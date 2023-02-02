@@ -58,6 +58,7 @@ store:any
   }
   out(){
     sessionStorage.clear()
+    localStorage.removeItem('token')
     this.route.navigateByUrl('/')
   }
 

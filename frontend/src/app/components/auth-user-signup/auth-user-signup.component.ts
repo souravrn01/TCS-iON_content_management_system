@@ -20,7 +20,7 @@ export class AuthUserSignupComponent implements OnInit {
     'email': new FormControl('',[Validators.required,Validators.email]),
     'password': new FormControl('',[Validators.required,RxwebValidators.password({validation:{maxLength: 20,minLength: 5,digit: true,specialCharacter: true} })])
   })
-  ngOnInit(): void {
+  ngOnInit(): void { 
     this.show = false
   } 
 

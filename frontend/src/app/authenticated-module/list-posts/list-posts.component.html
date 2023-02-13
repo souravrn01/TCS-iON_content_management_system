@@ -3,7 +3,7 @@
     <div class="in">
         <div id="post" *ngFor="let post of headlineArr">
             <div id="heading">
-                <h3>{{post.headline}}</h3>
+                <h3>{{post.headline |titlecase| slice:0:20}}{{ post.headline.length > 20 ? '...' : '' }}</h3>
             </div>
             <div id="over" (click)="view(post._id)"><p>View Post</p></div>
         </div> 

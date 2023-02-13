@@ -16,12 +16,12 @@ import { HomeComponent } from './home/home.component';
 import { ManagePageComponent } from './root-module/manage-page/manage-page.component';
 import { RootHomeComponent } from './root-module/root-home/root-home.component';
 import { AuthGuard } from './auth.guard';
-
+ 
 const routes: Routes = [
   {path: '', component:HomeComponent, children:[{path:'list/:category', component:ListPostsComponent}]},
   { path: 'authUser', component:AuthUserLoginComponent},
   { path: 'authUsersignup', component:AuthUserSignupComponent},
-  {path: 'root', component:RootLoginComponent},
+  {path: 'root', component:RootLoginComponent}, 
   {path: 'admin', component:AdminLoginComponent},
   {path: 'manage',canActivate:[AuthGuard], component: ManagePageComponent}, 
   {path: 'post/:category',canActivate:[AuthGuard], component:NewPostsComponent},
